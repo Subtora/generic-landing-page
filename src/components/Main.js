@@ -14,7 +14,7 @@ class Main extends Component {
         <div id="wallpaper" className="wallpaper"></div>
         <div className="content">
           <aside className="side">
-            <Profile src="https://trevorjs.dev/images/headProfile.svg"/>
+            <Profile src="https://trevorjs.dev/images/headProfile.svg" />
           </aside>
           <main className="about">
             <h1 className="name">Hey! I'm Trevor</h1>
@@ -28,7 +28,14 @@ class Main extends Component {
                 my stuff
               </a>
             </div>
-            <Social types={["github", "youtube", "stack-overflow", "linkedin"]}/>
+            <Social
+              types={{
+                github: "https://github.com",
+                youtube: "https://youtube.com",
+                "stack-overflow": "https://stackoverflow.com",
+                linkedin: "https://linkedin.com"
+              }}
+            />
           </main>
         </div>
       </>
