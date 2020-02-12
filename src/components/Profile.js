@@ -9,7 +9,7 @@ class Profile extends Component {
         <img
           id="pictureImage"
           className="picture-image"
-          src="https://trevorjs.dev/images/headProfile.svg"
+          src={this.props.src}
           width="300"
           height="300"
           alt="Trevor J Smith"

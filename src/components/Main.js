@@ -14,7 +14,7 @@ class Main extends Component {
         <div id="wallpaper" className="wallpaper"></div>
         <div className="content">
           <aside className="side">
-            <Profile />
+            <Profile src="https://trevorjs.dev/images/headProfile.svg"/>
           </aside>
           <main className="about">
             <h1 className="name">Hey! I'm Trevor</h1>
@@ -28,7 +28,7 @@ class Main extends Component {
                 my stuff
               </a>
             </div>
-            <Social />
+            <Social types={["github", "stack-overflow"]}/>
           </main>
         </div>
       </>
