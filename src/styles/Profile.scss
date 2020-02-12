@@ -1,0 +1,17 @@
+.picture {
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.picture-shadow {
+  border-radius: 500px;
+  background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
+  position: absolute;
+  top: 10%;
+}
+
+.picture-image {
+  border-radius: 500px;
+  position: absolute;
+}
