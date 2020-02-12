@@ -28,7 +28,7 @@ class Main extends Component {
                 my stuff
               </a>
             </div>
-            <Social types={["github", "stack-overflow"]}/>
+            <Social types={["github", "youtube", "stack-overflow", "linkedin"]}/>
           </main>
         </div>
       </>

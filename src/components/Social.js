@@ -8,7 +8,7 @@ class Social extends Component {
  for (const [index, value] of elements.entries()) {
    items.push(
      <li key={index}>
-        <a href="">
+        <a href="#" target="_blank">
           <i className={`fab fa-${this.props.types[0]}`}></i>
         </a>
      </li>
@@ -19,7 +19,6 @@ class Social extends Component {
       <ul className="social">
       {items}
       </ul>
-
     );
   }
 }
