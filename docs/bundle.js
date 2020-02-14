@@ -623,12 +623,12 @@ object-assign
     function j(e, t) {
       e.func.call(e.context, t, e.count++);
     }
-    function F(e, t, n) {
+    function L(e, t, n) {
       var r = e.result,
         l = e.keyPrefix;
       (e = e.func.call(e.context, t, e.count++)),
         Array.isArray(e)
-          ? L(e, r, n, function(e) {
+          ? F(e, r, n, function(e) {
               return e;
             })
           : null != e &&
@@ -652,10 +652,10 @@ object-assign
               )),
             r.push(e));
     }
-    function L(e, t, n, r, l) {
+    function F(e, t, n, r, l) {
       var a = "";
       null != n && (a = ("" + n).replace(O, "$&/") + "/"),
-        U(e, F, (t = I(t, a, r, l))),
+        U(e, L, (t = I(t, a, r, l))),
         M(t);
     }
     function D() {
@@ -668,7 +668,7 @@ object-assign
           map: function(e, t, n) {
             if (null == e) return e;
             var r = [];
-            return L(e, r, null, t, n), r;
+            return F(e, r, null, t, n), r;
           },
           forEach: function(e, t, n) {
             if (null == e) return e;
@@ -686,7 +686,7 @@ object-assign
           toArray: function(e) {
             var t = [];
             return (
-              L(e, t, null, function(e) {
+              F(e, t, null, function(e) {
                 return e;
               }),
               t
@@ -1008,8 +1008,8 @@ object-assign
     var U = /^(.*)[\\\/]/,
       R = "function" == typeof Symbol && Symbol.for,
       j = R ? Symbol.for("react.element") : 60103,
-      F = R ? Symbol.for("react.portal") : 60106,
-      L = R ? Symbol.for("react.fragment") : 60107,
+      L = R ? Symbol.for("react.portal") : 60106,
+      F = R ? Symbol.for("react.fragment") : 60107,
       D = R ? Symbol.for("react.strict_mode") : 60108,
       A = R ? Symbol.for("react.profiler") : 60114,
       B = R ? Symbol.for("react.provider") : 60109,
@@ -1036,9 +1036,9 @@ object-assign
       if ("function" == typeof e) return e.displayName || e.name || null;
       if ("string" == typeof e) return e;
       switch (e) {
-        case L:
-          return "Fragment";
         case F:
+          return "Fragment";
+        case L:
           return "Portal";
         case A:
           return "Profiler";
@@ -1472,7 +1472,7 @@ object-assign
         null == t.defaultValue && e.defaultValue !== n && (e.defaultValue = n)),
         null != r && (e.defaultValue = "" + r);
     }
-    function Fe(e) {
+    function Le(e) {
       var t = e.textContent;
       t === e._wrapperState.initialValue &&
         "" !== t &&
@@ -1509,7 +1509,7 @@ object-assign
       ["src", "href", "action", "formAction"].forEach(function(e) {
         ge[e] = new ve(e, 1, !1, e.toLowerCase(), null, !0);
       });
-    var Le = "http://www.w3.org/1999/xhtml",
+    var Fe = "http://www.w3.org/1999/xhtml",
       De = "http://www.w3.org/2000/svg";
     function Ae(e) {
       switch (e) {
@@ -1900,19 +1900,19 @@ object-assign
         this
       );
     }
-    function Ft(e, t, n, r) {
+    function Lt(e, t, n, r) {
       if (this.eventPool.length) {
         var l = this.eventPool.pop();
         return this.call(l, e, t, n, r), l;
       }
       return new this(e, t, n, r);
     }
-    function Lt(e) {
+    function Ft(e) {
       if (!(e instanceof this)) throw Error(i(279));
       e.destructor(), 10 > this.eventPool.length && this.eventPool.push(e);
     }
     function Dt(e) {
-      (e.eventPool = []), (e.getPooled = Ft), (e.release = Lt);
+      (e.eventPool = []), (e.getPooled = Lt), (e.release = Ft);
     }
     l(jt.prototype, {
       preventDefault: function() {
@@ -2608,8 +2608,8 @@ object-assign
         strokeOpacity: !0,
         strokeWidth: !0
       },
-      Fn = ["Webkit", "ms", "Moz", "O"];
-    function Ln(e, t, n) {
+      Ln = ["Webkit", "ms", "Moz", "O"];
+    function Fn(e, t, n) {
       return null == t || "boolean" == typeof t || "" === t
         ? ""
         : n ||
@@ -2623,13 +2623,13 @@ object-assign
       for (var n in ((e = e.style), t))
         if (t.hasOwnProperty(n)) {
           var r = 0 === n.indexOf("--"),
-            l = Ln(n, t[n], r);
+            l = Fn(n, t[n], r);
           "float" === n && (n = "cssFloat"),
             r ? e.setProperty(n, l) : (e[n] = l);
         }
     }
     Object.keys(jn).forEach(function(e) {
-      Fn.forEach(function(t) {
+      Ln.forEach(function(t) {
         (t = t + e.charAt(0).toUpperCase() + e.substring(1)), (jn[t] = jn[e]);
       });
     });
@@ -3049,10 +3049,10 @@ object-assign
     function jr(e) {
       O(e);
     }
-    function Fr(e) {
+    function Lr(e) {
       if (Se(sr(e))) return e;
     }
-    function Lr(e, t) {
+    function Fr(e, t) {
       if ("change" === e) return t;
     }
     var Dr = !1;
@@ -3060,7 +3060,7 @@ object-assign
       Ur && (Ur.detachEvent("onpropertychange", Br), (Rr = Ur = null));
     }
     function Br(e) {
-      if ("value" === e.propertyName && Fr(Rr))
+      if ("value" === e.propertyName && Lr(Rr))
         if (((e = Mr(Rr, e, _t(e))), se)) O(e);
         else {
           se = !0;
@@ -3078,13 +3078,13 @@ object-assign
     }
     function Wr(e) {
       if ("selectionchange" === e || "keyup" === e || "keydown" === e)
-        return Fr(Rr);
+        return Lr(Rr);
     }
     function $r(e, t) {
-      if ("click" === e) return Fr(t);
+      if ("click" === e) return Lr(t);
     }
     function Hr(e, t) {
-      if ("input" === e || "change" === e) return Fr(t);
+      if ("input" === e || "change" === e) return Lr(t);
     }
     Z &&
       (Dr =
@@ -3097,7 +3097,7 @@ object-assign
           var l = t ? sr(t) : window,
             a = l.nodeName && l.nodeName.toLowerCase();
           if ("select" === a || ("input" === a && "file" === l.type))
-            var i = Lr;
+            var i = Fr;
           else if (zr(l))
             if (Dr) i = Hr;
             else {
@@ -3428,8 +3428,8 @@ object-assign
       Ul = a.unstable_IdlePriority,
       Rl = {},
       jl = void 0 !== _l ? _l : function() {},
-      Fl = null,
       Ll = null,
+      Fl = null,
       Dl = !1,
       Al = Pl(),
       Bl =
@@ -3477,21 +3477,21 @@ object-assign
       return (e = Wl(e)), Tl(e, t, n);
     }
     function Ql(e) {
-      return null === Fl ? ((Fl = [e]), (Ll = Tl(Ol, ql))) : Fl.push(e), Rl;
+      return null === Ll ? ((Ll = [e]), (Fl = Tl(Ol, ql))) : Ll.push(e), Rl;
     }
     function Kl() {
-      if (null !== Ll) {
-        var e = Ll;
-        (Ll = null), Sl(e);
+      if (null !== Fl) {
+        var e = Fl;
+        (Fl = null), Sl(e);
       }
       ql();
     }
     function ql() {
-      if (!Dl && null !== Fl) {
+      if (!Dl && null !== Ll) {
         Dl = !0;
         var e = 0;
         try {
-          var t = Fl;
+          var t = Ll;
           $l(99, function() {
             for (; e < t.length; e++) {
               var n = t[e];
@@ -3500,9 +3500,9 @@ object-assign
               } while (null !== n);
             }
           }),
-            (Fl = null);
+            (Ll = null);
         } catch (t) {
-          throw (null !== Fl && (Fl = Fl.slice(e + 1)), Tl(Ol, Kl), t);
+          throw (null !== Ll && (Ll = Ll.slice(e + 1)), Tl(Ol, Kl), t);
         } finally {
           Dl = !1;
         }
@@ -3970,7 +3970,7 @@ object-assign
                 (n.return = e),
                 n
               );
-            case F:
+            case L:
               return ((t = ju(t, e.mode, n)).return = e), t;
           }
           if (Pa(t) || X(t))
@@ -3987,11 +3987,11 @@ object-assign
           switch (n.$$typeof) {
             case j:
               return n.key === l
-                ? n.type === L
+                ? n.type === F
                   ? f(e, t, n.props.children, r, l)
                   : c(e, t, n, r)
                 : null;
-            case F:
+            case L:
               return n.key === l ? s(e, t, n, r) : null;
           }
           if (Pa(n) || X(n)) return null !== l ? null : f(e, t, n, r, null);
@@ -4007,11 +4007,11 @@ object-assign
             case j:
               return (
                 (e = e.get(null === r.key ? n : r.key) || null),
-                r.type === L
+                r.type === F
                   ? f(t, e, r.props.children, l, r.key)
                   : c(t, e, r, l)
               );
-            case F:
+            case L:
               return s(
                 t,
                 (e = e.get(null === r.key ? n : r.key) || null),
@@ -4111,7 +4111,7 @@ object-assign
       }
       return function(e, r, a, u) {
         var c =
-          "object" == typeof a && null !== a && a.type === L && null === a.key;
+          "object" == typeof a && null !== a && a.type === F && null === a.key;
         c && (a = a.props.children);
         var s = "object" == typeof a && null !== a;
         if (s)
@@ -4120,11 +4120,11 @@ object-assign
               e: {
                 for (s = a.key, c = r; null !== c; ) {
                   if (c.key === s) {
-                    if (7 === c.tag ? a.type === L : c.elementType === a.type) {
+                    if (7 === c.tag ? a.type === F : c.elementType === a.type) {
                       n(e, c.sibling),
                         ((r = l(
                           c,
-                          a.type === L ? a.props.children : a.props
+                          a.type === F ? a.props.children : a.props
                         )).ref = Na(e, c, a)),
                         (r.return = e),
                         (e = r);
@@ -4135,7 +4135,7 @@ object-assign
                   }
                   t(e, c), (c = c.sibling);
                 }
-                a.type === L
+                a.type === F
                   ? (((r = Uu(a.props.children, e.mode, u, a.key)).return = e),
                     (e = r))
                   : (((u = Mu(
@@ -4150,7 +4150,7 @@ object-assign
                     (e = u));
               }
               return o(e);
-            case F:
+            case L:
               e: {
                 for (c = a.key; null !== r; ) {
                   if (r.key === c) {
@@ -4198,13 +4198,13 @@ object-assign
       Ua = {},
       Ra = { current: Ua },
       ja = { current: Ua },
-      Fa = { current: Ua };
-    function La(e) {
+      La = { current: Ua };
+    function Fa(e) {
       if (e === Ua) throw Error(i(174));
       return e;
     }
     function Da(e, t) {
-      sl(Fa, t), sl(ja, e), sl(Ra, Ua);
+      sl(La, t), sl(ja, e), sl(Ra, Ua);
       var n = t.nodeType;
       switch (n) {
         case 9:
@@ -4220,11 +4220,11 @@ object-assign
       cl(Ra), sl(Ra, t);
     }
     function Aa(e) {
-      cl(Ra), cl(ja), cl(Fa);
+      cl(Ra), cl(ja), cl(La);
     }
     function Ba(e) {
-      La(Fa.current);
-      var t = La(Ra.current),
+      Fa(La.current);
+      var t = Fa(Ra.current),
         n = Be(t, e.type);
       t !== n && (sl(ja, e), sl(Ra, n));
     }
@@ -4787,7 +4787,7 @@ object-assign
         e = e.return;
       Oi = e;
     }
-    function Fi(e) {
+    function Li(e) {
       if (e !== Oi) return !1;
       if (!Ii) return ji(e), (Ii = !0), !1;
       var t = e.type;
@@ -4818,7 +4818,7 @@ object-assign
       } else zi = Oi ? nr(e.stateNode.nextSibling) : null;
       return !0;
     }
-    function Li() {
+    function Fi() {
       (zi = Oi = null), (Ii = !1);
     }
     var Di = M.ReactCurrentOwner,
@@ -5306,7 +5306,7 @@ object-assign
           var o,
             u,
             c = t.stateNode;
-          switch ((La(Ra.current), (e = null), n)) {
+          switch ((Fa(Ra.current), (e = null), n)) {
             case "input":
               (i = Ce(c, i)), (r = Ce(c, r)), (e = []);
               break;
@@ -5733,7 +5733,7 @@ object-assign
                         l.hasOwnProperty("display")
                           ? l.display
                           : null),
-                      (a.style.display = Ln("display", l)));
+                      (a.style.display = Fn("display", l)));
               else if (6 === e.tag)
                 e.stateNode.nodeValue = r ? "" : e.memoizedProps;
               else {
@@ -5829,8 +5829,8 @@ object-assign
       Uo = null,
       Ro = 1073741823,
       jo = 1073741823,
-      Fo = null,
-      Lo = 0,
+      Lo = null,
+      Fo = 0,
       Do = !1,
       Ao = 0,
       Bo = null,
@@ -5923,7 +5923,7 @@ object-assign
       var t = e.lastExpiredTime;
       return 0 !== t
         ? t
-        : Lu(e, (t = e.firstPendingTime))
+        : Fu(e, (t = e.firstPendingTime))
         ? (t = e.lastPingedTime) > (e = e.nextKnownPendingLevel)
           ? t
           : e
@@ -6075,9 +6075,9 @@ object-assign
                 gu(e);
                 break;
               case 5:
-                if (1073741823 !== Ro && null !== Fo) {
+                if (1073741823 !== Ro && null !== Lo) {
                   a = Ro;
-                  var o = Fo;
+                  var o = Lo;
                   if (
                     (0 >= (r = 0 | o.busyMinDurationMs)
                       ? (r = 0)
@@ -6186,8 +6186,8 @@ object-assign
         (Mo = 0),
         (Uo = null),
         (jo = Ro = 1073741823),
-        (Fo = null),
-        (Lo = 0),
+        (Lo = null),
+        (Fo = 0),
         (Do = !1);
     }
     function cu(e, t) {
@@ -6308,10 +6308,10 @@ object-assign
     }
     function fu(e, t) {
       e < Ro && 2 < e && (Ro = e),
-        null !== t && e < jo && 2 < e && ((jo = e), (Fo = t));
+        null !== t && e < jo && 2 < e && ((jo = e), (Lo = t));
     }
     function du(e) {
-      e > Lo && (Lo = e);
+      e > Fo && (Fo = e);
     }
     function pu() {
       for (; null !== zo; ) zo = hu(zo);
@@ -6352,16 +6352,16 @@ object-assign
                   gl(),
                   (a = t.stateNode).pendingContext &&
                     ((a.context = a.pendingContext), (a.pendingContext = null)),
-                  (null === n || null === n.child) && Fi(t) && ao(t);
+                  (null === n || null === n.child) && Li(t) && ao(t);
                 break;
               case 5:
-                Va(t), (r = La(Fa.current));
+                Va(t), (r = Fa(La.current));
                 var o = t.type;
                 if (null !== n && null != t.stateNode)
                   Gi(n, t, o, a, r), n.ref !== t.ref && (t.effectTag |= 128);
                 else if (a) {
-                  var u = La(Ra.current);
-                  if (Fi(t)) {
+                  var u = Fa(Ra.current);
+                  if (Li(t)) {
                     var c = (a = t).stateNode;
                     n = a.type;
                     var s = a.memoizedProps,
@@ -6418,7 +6418,7 @@ object-assign
                         Te(r), Oe(r, s, !0);
                         break;
                       case "textarea":
-                        Te(r), Fe(r);
+                        Te(r), Le(r);
                         break;
                       case "select":
                       case "option":
@@ -6432,8 +6432,8 @@ object-assign
                       (f = o),
                       (s = a),
                       (c = 9 === r.nodeType ? r : r.ownerDocument),
-                      u === Le && (u = Ae(f)),
-                      u === Le
+                      u === Fe && (u = Ae(f)),
+                      u === Fe
                         ? "script" === f
                           ? (((s = c.createElement("div")).innerHTML =
                               "<script></script>"),
@@ -6528,7 +6528,7 @@ object-assign
                         Te(s), Oe(s, n, !1);
                         break;
                       case "textarea":
-                        Te(s), Fe(s);
+                        Te(s), Le(s);
                         break;
                       case "option":
                         null != n.value &&
@@ -6554,9 +6554,9 @@ object-assign
                 else {
                   if ("string" != typeof a && null === t.stateNode)
                     throw Error(i(166));
-                  (r = La(Fa.current)),
-                    La(Ra.current),
-                    Fi(t)
+                  (r = Fa(La.current)),
+                    Fa(Ra.current),
+                    Li(t)
                       ? ((o = (a = t).stateNode),
                         (r = a.memoizedProps),
                         (o[ar] = a),
@@ -6579,7 +6579,7 @@ object-assign
                 (a = null !== a),
                   (o = !1),
                   null === n
-                    ? void 0 !== t.memoizedProps.fallback && Fi(t)
+                    ? void 0 !== t.memoizedProps.fallback && Li(t)
                     : ((o = null !== (r = n.memoizedState)),
                       a ||
                         null === r ||
@@ -6597,7 +6597,7 @@ object-assign
                     0 != (1 & Wa.current)
                       ? 0 === Mo && (Mo = 3)
                       : ((0 !== Mo && 3 !== Mo) || (Mo = 4),
-                        0 !== Lo && null !== Oo && (Du(Oo, Io), Au(Oo, Lo)))),
+                        0 !== Fo && null !== Oo && (Du(Oo, Io), Au(Oo, Fo)))),
                   (a || o) && (t.effectTag |= 4);
                 break;
               case 7:
@@ -7152,7 +7152,7 @@ object-assign
           ? 4 === Mo || (3 === Mo && 1073741823 === Ro && Bl() - Ao < 500)
             ? uu(e, Io)
             : (Do = !0)
-          : Lu(e, n) &&
+          : Fu(e, n) &&
             ((0 !== (t = e.lastPingedTime) && t < n) ||
               ((e.lastPingedTime = n),
               e.finishedExpirationTime === n &&
@@ -7174,7 +7174,7 @@ object-assign
           if (r < n) {
             switch (((Ai = !1), t.tag)) {
               case 3:
-                Yi(t), Li();
+                Yi(t), Fi();
                 break;
               case 5:
                 if ((Ba(t), 4 & t.mode && 1 !== n && l.hidden))
@@ -7323,7 +7323,7 @@ object-assign
             va(t, r, t.pendingProps, null, n),
             (r = t.memoizedState.element) === l)
           )
-            Li(), (t = lo(e, t, n));
+            Fi(), (t = lo(e, t, n));
           else {
             if (
               ((l = t.stateNode.hydrate) &&
@@ -7334,7 +7334,7 @@ object-assign
             )
               for (n = Ma(t, null, r, n), t.child = n; n; )
                 (n.effectTag = (-3 & n.effectTag) | 1024), (n = n.sibling);
-            else Bi(e, t, r, n), Li();
+            else Bi(e, t, r, n), Fi();
             t = t.child;
           }
           return t;
@@ -7537,7 +7537,7 @@ object-assign
       else if ("string" == typeof e) o = 5;
       else
         e: switch (e) {
-          case L:
+          case F:
             return Uu(n.children, l, a, t);
           case W:
             (o = 8), (l |= 7);
@@ -7613,7 +7613,7 @@ object-assign
         t
       );
     }
-    function Fu(e, t, n) {
+    function Lu(e, t, n) {
       (this.tag = t),
         (this.current = null),
         (this.containerInfo = e),
@@ -7627,7 +7627,7 @@ object-assign
         (this.callbackPriority = 90),
         (this.lastExpiredTime = this.lastPingedTime = this.nextKnownPendingLevel = this.lastSuspendedTime = this.firstSuspendedTime = this.firstPendingTime = 0);
     }
-    function Lu(e, t) {
+    function Fu(e, t) {
       var n = e.firstSuspendedTime;
       return (e = e.lastSuspendedTime), 0 !== n && n >= t && e <= t;
     }
@@ -7713,7 +7713,7 @@ object-assign
       $u(e, t), (e = e.alternate) && $u(e, t);
     }
     function Qu(e, t, n) {
-      var r = new Fu(e, t, (n = null != n && !0 === n.hydrate)),
+      var r = new Lu(e, t, (n = null != n && !0 === n.hydrate)),
         l = Ou(3, null, null, 2 === t ? 7 : 1 === t ? 3 : 0);
       (r.current = l),
         (l.stateNode = r),
@@ -7790,7 +7790,7 @@ object-assign
       var r =
         3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
       return {
-        $$typeof: F,
+        $$typeof: L,
         key: null == r ? null : "" + r,
         children: e,
         containerInfo: t,
@@ -8183,7 +8183,7 @@ object-assign
       U = !1,
       R = !1,
       j = !1;
-    function F(e) {
+    function L(e) {
       for (var t = C(O); null !== t; ) {
         if (null === t.callback) _(O);
         else {
@@ -8193,12 +8193,12 @@ object-assign
         t = C(O);
       }
     }
-    function L(e) {
-      if (((j = !1), F(e), !R))
+    function F(e) {
+      if (((j = !1), L(e), !R))
         if (null !== C(N)) (R = !0), r(D);
         else {
           var t = C(O);
-          null !== t && l(L, t.startTime - e);
+          null !== t && l(F, t.startTime - e);
         }
     }
     function D(e, n) {
@@ -8206,7 +8206,7 @@ object-assign
       var r = M;
       try {
         for (
-          F(n), I = C(N);
+          L(n), I = C(N);
           null !== I && (!(I.expirationTime > n) || (e && !i()));
 
         ) {
@@ -8216,14 +8216,14 @@ object-assign
             var u = o(I.expirationTime <= n);
             (n = t.unstable_now()),
               "function" == typeof u ? (I.callback = u) : I === C(N) && _(N),
-              F(n);
+              L(n);
           } else _(N);
           I = C(N);
         }
         if (null !== I) var c = !0;
         else {
           var s = C(O);
-          null !== s && l(L, s.startTime - n), (c = !1);
+          null !== s && l(F, s.startTime - n), (c = !1);
         }
         return c;
       } finally {
@@ -8306,7 +8306,7 @@ object-assign
           u > o
             ? ((e.sortIndex = u),
               S(O, e),
-              null === C(N) && e === C(O) && (j ? a() : (j = !0), l(L, u - o)))
+              null === C(N) && e === C(O) && (j ? a() : (j = !0), l(F, u - o)))
             : ((e.sortIndex = i), S(N, e), R || U || ((R = !0), r(D))),
           e
         );
@@ -8331,7 +8331,7 @@ object-assign
       }),
       (t.unstable_shouldYield = function() {
         var e = t.unstable_now();
-        F(e);
+        L(e);
         var n = C(N);
         return (
           (n !== I &&
@@ -8437,7 +8437,7 @@ object-assign
   function(e, t, n) {
     (e.exports = n(1)(!1)).push([
       e.i,
-      "@keyframes bounceIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}@keyframes fillUp{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes picImage{from{opacity:0;transform:scale(1.2) translateY(-1rem)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes picShadow{from{opacity:0;transform:scale(1.2) translateY(4rem)}to{opacity:1;transform:scale(1.1) translateY(0)}}@keyframes slideDown{from{opacity:0;transform:translateY(-1rem)}to{opacity:1;transform:translateY(0)}}@keyframes slideUp{from{opacity:0;transform:translateY(1rem)}to{opacity:1;transform:translateY(0)}}@keyframes zoomOut{from{opacity:0;transform:scale(1.05)}to{opacity:0.9;transform:scale(1)}}.wallpaper,.picture-shadow,.picture-image,.name,.job,.hr,.description,.contact,.social li{animation-duration:1s;animation-timing-function:cubic-bezier(0, 0.5, 0, 1);animation-fill-mode:both}.wallpaper{animation-timing-function:ease-out}.picture-shadow,.picture-image{animation-duration:750ms;animation-timing-function:cubic-bezier(0, 0.5, 0.25, 1.25)}.wallpaper,.picture-shadow,.picture-image{opacity:0}.wallpaper{animation-name:zoomOut}.picture.is-loaded .picture-shadow{animation-name:picShadow}.picture.is-loaded .picture-image{animation-name:picImage}.name{animation-name:slideDown}.job{animation-name:slideUp}.hr{animation-name:fillUp}.description{animation-name:slideUp}.contact{animation-name:bounceIn}.social li{animation-duration:500ms;animation-name:slideUp;animation-timing-function:cubic-bezier(0.5, 0, 0.5, 1.5)}.name{animation-delay:100ms}.job{animation-delay:200ms}.hr{animation-delay:300ms}.description{animation-delay:400ms}.picture-image{animation-delay:500ms}.picture-shadow{animation-delay:500ms}.contact{animation-delay:600ms}.social li:nth-child(1){animation-delay:800ms}.social li:nth-child(2){animation-delay:900ms}.social li:nth-child(3){animation-delay:1s}.social li:nth-child(4){animation-delay:1.1s}.wallpaper.is-loaded{animation-delay:1s}\n",
+      "@keyframes bounceIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}@keyframes fillUp{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes picImage{from{opacity:0;transform:scale(1.2) translateY(-1rem)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes picShadow{from{opacity:0;transform:scale(1.2) translateY(4rem)}to{opacity:1;transform:scale(1.1) translateY(0)}}@keyframes slideDown{from{opacity:0;transform:translateY(-1rem)}to{opacity:1;transform:translateY(0)}}@keyframes slideUp{from{opacity:0;transform:translateY(1rem)}to{opacity:1;transform:translateY(0)}}@keyframes zoomOut{from{opacity:0;transform:scale(1.05)}to{opacity:0.9;transform:scale(1)}}.wallpaper,.picture-shadow,.picture-image,.name,.job,.hr,.description,.contact,.social li{animation-duration:1s;animation-timing-function:cubic-bezier(0, 0.5, 0, 1);animation-fill-mode:both}.wallpaper{animation-timing-function:ease-out}.picture-shadow,.picture-image{animation-duration:750ms;animation-timing-function:cubic-bezier(0, 0.5, 0.25, 1.25)}.wallpaper,.picture-shadow,.picture-image{opacity:0}.wallpaper{animation-name:zoomOut}.picture .picture-shadow{animation-name:picShadow}.picture .picture-image{animation-name:picImage}.name{animation-name:slideDown}.job{animation-name:slideUp}.hr{animation-name:fillUp}.description{animation-name:slideUp}.contact{animation-name:bounceIn}.social li{animation-duration:500ms;animation-name:slideUp;animation-timing-function:cubic-bezier(0.5, 0, 0.5, 1.5)}.name{animation-delay:100ms}.job{animation-delay:200ms}.hr{animation-delay:300ms}.description{animation-delay:400ms}.picture-image{animation-delay:500ms}.picture-shadow{animation-delay:500ms}.contact{animation-delay:600ms}.social li:nth-child(1){animation-delay:800ms}.social li:nth-child(2){animation-delay:900ms}.social li:nth-child(3){animation-delay:1s}.social li:nth-child(4){animation-delay:1.1s}\n",
       ""
     ]);
   },
@@ -8502,10 +8502,52 @@ object-assign
             })(e);
     }
     function u(e, t) {
+      return (
+        (function(e) {
+          if (Array.isArray(e)) return e;
+        })(e) ||
+        (function(e, t) {
+          if (
+            !(
+              Symbol.iterator in Object(e) ||
+              "[object Arguments]" === Object.prototype.toString.call(e)
+            )
+          )
+            return;
+          var n = [],
+            r = !0,
+            l = !1,
+            a = void 0;
+          try {
+            for (
+              var i, o = e[Symbol.iterator]();
+              !(r = (i = o.next()).done) &&
+              (n.push(i.value), !t || n.length !== t);
+              r = !0
+            );
+          } catch (e) {
+            (l = !0), (a = e);
+          } finally {
+            try {
+              r || null == o.return || o.return();
+            } finally {
+              if (l) throw a;
+            }
+          }
+          return n;
+        })(e, t) ||
+        (function() {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance"
+          );
+        })()
+      );
+    }
+    function c(e, t) {
       if (!(e instanceof t))
         throw new TypeError("Cannot call a class as a function");
     }
-    function c(e, t) {
+    function s(e, t) {
       for (var n = 0; n < t.length; n++) {
         var r = t[n];
         (r.enumerable = r.enumerable || !1),
@@ -8514,7 +8556,7 @@ object-assign
           Object.defineProperty(e, r.key, r);
       }
     }
-    function s(e, t) {
+    function f(e, t) {
       return !t || ("object" !== o(t) && "function" != typeof t)
         ? (function(e) {
             if (void 0 === e)
@@ -8525,23 +8567,23 @@ object-assign
           })(e)
         : t;
     }
-    function f(e) {
-      return (f = Object.setPrototypeOf
+    function d(e) {
+      return (d = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(e) {
             return e.__proto__ || Object.getPrototypeOf(e);
           })(e);
     }
-    function d(e, t) {
-      return (d =
+    function p(e, t) {
+      return (p =
         Object.setPrototypeOf ||
         function(e, t) {
           return (e.__proto__ = t), e;
         })(e, t);
     }
-    var p = (function(e) {
+    var m = (function(e) {
       function t() {
-        return u(this, t), s(this, f(t).apply(this, arguments));
+        return c(this, t), f(this, d(t).apply(this, arguments));
       }
       var n, r, a;
       return (
@@ -8553,65 +8595,47 @@ object-assign
           (e.prototype = Object.create(t && t.prototype, {
             constructor: { value: e, writable: !0, configurable: !0 }
           })),
-            t && d(e, t);
+            t && p(e, t);
         })(t, e),
         (n = t),
         (r = [
           {
             key: "render",
             value: function() {
+              var e = this;
               return l.a.createElement(
                 "ul",
                 { className: "social" },
-                l.a.createElement(
-                  "li",
-                  null,
-                  l.a.createElement(
-                    "a",
-                    { href: "https://github.com/Subtora" },
-                    l.a.createElement("i", { className: "fab fa-github" })
-                  )
-                ),
-                l.a.createElement(
-                  "li",
-                  null,
-                  l.a.createElement(
-                    "a",
-                    { href: "https://github.com/Subtora" },
-                    l.a.createElement("i", { className: "fab fa-youtube" })
-                  )
-                ),
-                l.a.createElement(
-                  "li",
-                  null,
-                  l.a.createElement(
-                    "a",
-                    { href: "https://github.com/Subtora" },
-                    l.a.createElement("i", {
-                      className: "fab fa-stack-overflow"
-                    })
-                  )
-                ),
-                l.a.createElement(
-                  "li",
-                  null,
-                  l.a.createElement(
-                    "a",
-                    { href: "https://github.com/Subtora" },
-                    l.a.createElement("i", { className: "fab fa-linkedin" })
-                  )
-                )
+                Object.entries(this.props.types).map(function(t) {
+                  var n = u(t, 2),
+                    r = n[0],
+                    a = n[1];
+                  return (
+                    console.log(Object.entries(e.props.types)),
+                    l.a.createElement(
+                      "li",
+                      { key: r },
+                      l.a.createElement(
+                        "a",
+                        { href: a, target: "_blank" },
+                        l.a.createElement("i", {
+                          className: "fab fa-".concat(r)
+                        })
+                      )
+                    )
+                  );
+                })
               );
             }
           }
-        ]) && c(n.prototype, r),
-        a && c(n, a),
+        ]) && s(n.prototype, r),
+        a && s(n, a),
         t
       );
     })(r.Component);
     n(12);
-    function m(e) {
-      return (m =
+    function h(e) {
+      return (h =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
           ? function(e) {
               return typeof e;
@@ -8625,11 +8649,11 @@ object-assign
                 : typeof e;
             })(e);
     }
-    function h(e, t) {
+    function y(e, t) {
       if (!(e instanceof t))
         throw new TypeError("Cannot call a class as a function");
     }
-    function y(e, t) {
+    function v(e, t) {
       for (var n = 0; n < t.length; n++) {
         var r = t[n];
         (r.enumerable = r.enumerable || !1),
@@ -8638,8 +8662,8 @@ object-assign
           Object.defineProperty(e, r.key, r);
       }
     }
-    function v(e, t) {
-      return !t || ("object" !== m(t) && "function" != typeof t)
+    function g(e, t) {
+      return !t || ("object" !== h(t) && "function" != typeof t)
         ? (function(e) {
             if (void 0 === e)
               throw new ReferenceError(
@@ -8649,23 +8673,23 @@ object-assign
           })(e)
         : t;
     }
-    function g(e) {
-      return (g = Object.setPrototypeOf
+    function b(e) {
+      return (b = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(e) {
             return e.__proto__ || Object.getPrototypeOf(e);
           })(e);
     }
-    function b(e, t) {
-      return (b =
+    function w(e, t) {
+      return (w =
         Object.setPrototypeOf ||
         function(e, t) {
           return (e.__proto__ = t), e;
         })(e, t);
     }
-    var w = (function(e) {
+    var k = (function(e) {
       function t() {
-        return h(this, t), v(this, g(t).apply(this, arguments));
+        return y(this, t), g(this, b(t).apply(this, arguments));
       }
       var n, r, a;
       return (
@@ -8677,7 +8701,7 @@ object-assign
           (e.prototype = Object.create(t && t.prototype, {
             constructor: { value: e, writable: !0, configurable: !0 }
           })),
-            t && b(e, t);
+            t && w(e, t);
         })(t, e),
         (n = t),
         (r = [
@@ -8691,7 +8715,7 @@ object-assign
                 l.a.createElement("img", {
                   id: "pictureImage",
                   className: "picture-image",
-                  src: "https://trevorjs.dev/images/headProfile.svg",
+                  src: this.props.src,
                   width: "300",
                   height: "300",
                   alt: "Trevor J Smith"
@@ -8699,14 +8723,14 @@ object-assign
               );
             }
           }
-        ]) && y(n.prototype, r),
-        a && y(n, a),
+        ]) && v(n.prototype, r),
+        a && v(n, a),
         t
       );
     })(r.Component);
     n(14), n(16), n(18), n(20);
-    function k(e) {
-      return (k =
+    function E(e) {
+      return (E =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
           ? function(e) {
               return typeof e;
@@ -8720,11 +8744,11 @@ object-assign
                 : typeof e;
             })(e);
     }
-    function E(e, t) {
+    function x(e, t) {
       if (!(e instanceof t))
         throw new TypeError("Cannot call a class as a function");
     }
-    function x(e, t) {
+    function T(e, t) {
       for (var n = 0; n < t.length; n++) {
         var r = t[n];
         (r.enumerable = r.enumerable || !1),
@@ -8733,8 +8757,8 @@ object-assign
           Object.defineProperty(e, r.key, r);
       }
     }
-    function T(e, t) {
-      return !t || ("object" !== k(t) && "function" != typeof t)
+    function S(e, t) {
+      return !t || ("object" !== E(t) && "function" != typeof t)
         ? (function(e) {
             if (void 0 === e)
               throw new ReferenceError(
@@ -8744,23 +8768,23 @@ object-assign
           })(e)
         : t;
     }
-    function S(e) {
-      return (S = Object.setPrototypeOf
+    function C(e) {
+      return (C = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(e) {
             return e.__proto__ || Object.getPrototypeOf(e);
           })(e);
     }
-    function C(e, t) {
-      return (C =
+    function _(e, t) {
+      return (_ =
         Object.setPrototypeOf ||
         function(e, t) {
           return (e.__proto__ = t), e;
         })(e, t);
     }
-    var _ = (function(e) {
+    var P = (function(e) {
       function t() {
-        return E(this, t), T(this, S(t).apply(this, arguments));
+        return x(this, t), S(this, C(t).apply(this, arguments));
       }
       var n, r, a;
       return (
@@ -8772,7 +8796,7 @@ object-assign
           (e.prototype = Object.create(t && t.prototype, {
             constructor: { value: e, writable: !0, configurable: !0 }
           })),
-            t && C(e, t);
+            t && _(e, t);
         })(t, e),
         (n = t),
         (r = [
@@ -8792,7 +8816,9 @@ object-assign
                   l.a.createElement(
                     "aside",
                     { className: "side" },
-                    l.a.createElement(w, null)
+                    l.a.createElement(k, {
+                      src: "https://trevorjs.dev/images/headProfile.svg"
+                    })
                   ),
                   l.a.createElement(
                     "main",
@@ -8826,17 +8852,27 @@ object-assign
                         "my stuff"
                       )
                     ),
-                    l.a.createElement(p, null)
+                    l.a.createElement(m, {
+                      types: {
+                        github: "https://github.com/Subtora",
+                        youtube:
+                          "https://www.youtube.com/channel/UCbkqwGP9qHvKWp3iCEfLkXA",
+                        "stack-overflow":
+                          "https://stackoverflow.com/users/8026620/subtora",
+                        linkedin:
+                          "https://www.linkedin.com/in/trevor-smith-27621613b/"
+                      }
+                    })
                   )
                 )
               );
             }
           }
-        ]) && x(n.prototype, r),
-        a && x(n, a),
+        ]) && T(n.prototype, r),
+        a && T(n, a),
         t
       );
     })(r.Component);
-    i.a.render(l.a.createElement(_, null), document.getElementById("root"));
+    i.a.render(l.a.createElement(P, null), document.getElementById("root"));
   }
 ]);

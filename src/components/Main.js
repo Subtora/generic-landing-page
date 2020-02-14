@@ -30,10 +30,12 @@ class Main extends Component {
             </div>
             <Social
               types={{
-                github: "https://github.com",
-                youtube: "https://youtube.com",
-                "stack-overflow": "https://stackoverflow.com",
-                linkedin: "https://linkedin.com"
+                github: "https://github.com/Subtora",
+                youtube:
+                  "https://www.youtube.com/channel/UCbkqwGP9qHvKWp3iCEfLkXA",
+                "stack-overflow":
+                  "https://stackoverflow.com/users/8026620/subtora",
+                linkedin: "https://www.linkedin.com/in/trevor-smith-27621613b/"
               }}
             />
           </main>

@@ -5,7 +5,8 @@ class Social extends Component {
   render() {
     return (
       <ul className="social">
-        {Object.keys(this.props.types).map((fa, link) => {
+        {Object.entries(this.props.types).map(([fa, link]) => {
+          console.log(Object.entries(this.props.types));
           return (
             <li key={fa}>
               <a href={link} target="_blank">
