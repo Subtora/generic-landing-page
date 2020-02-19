@@ -13,7 +13,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"]
       },
-      { 
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
@@ -24,6 +24,15 @@ module.exports = {
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000
+          }
+        }
       }
     ]
   },

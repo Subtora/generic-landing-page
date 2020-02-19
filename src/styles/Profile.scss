@@ -8,12 +8,16 @@
 
 .picture-shadow {
   border-radius: 500px;
+  height: 340px;
   background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
   position: absolute;
   top: 10%;
 }
 
+#pictureImage {
+  height: 340px;
+}
+
 .picture-image {
-  border-radius: 500px;
   position: absolute;
 }

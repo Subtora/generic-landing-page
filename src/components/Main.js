@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import Social from "./Social";
 import Profile from "./Profile";
 
+import Bkg from "../images/green-hills.jpg";
+
+import Head1 from "../images/profile1.png";
+import Head2 from "../images/profile2.png";
+import Head3 from "../images/profile3.png";
+
 import "../styles/Main.scss";
 import "../styles/animations.scss";
 import "../styles/minireset.min.css";
@@ -9,12 +15,16 @@ import "../scripts/main.js";
 
 class Main extends Component {
   render() {
+    let backgroundImage = {
+      backgroundImage: `url(${Bkg})`
+    };
+
     return (
       <>
-        <div id="wallpaper" className="wallpaper"></div>
+        <div id="wallpaper" className="wallpaper" style={backgroundImage}></div>
         <div className="content">
           <aside className="side">
-            <Profile src="https://trevorjs.dev/images/headProfile.svg" />
+            <Profile srcset={[Head1, Head2, Head3]} />
           </aside>
           <main className="about">
             <h1 className="name">Hey! I'm Trevor</h1>

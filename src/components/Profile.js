@@ -9,9 +9,10 @@ class Profile extends Component {
         <img
           id="pictureImage"
           className="picture-image"
-          src={this.props.src}
-          width="300"
-          height="300"
+          srcSet={`
+            ${this.props.srcset[0]} 1x,
+            ${this.props.srcset[1]} 2x,
+            ${this.props.srcset[2]} 3x`}
           alt="Trevor J Smith"
         />
       </figure>
