@@ -31,7 +31,7 @@ class Main extends Component {
             <p className="job">Full-Stack Developer</p>
             <hr className="hr" />
             <div className="description">
-              <p>just another description</p>
+              <p>Searching for the truth...</p>
             </div>
             <div className="contact">
               <a href="https://trevorjs.dev" target="_blank" className="button">
